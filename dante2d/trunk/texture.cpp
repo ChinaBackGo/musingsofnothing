@@ -97,11 +97,8 @@ Texture::Texture(std::string img_name, Uint32 posx, Uint32 posy)
   assert(glIsEnabled(GL_TEXTURE_2D));
   img=NULL;
   //Load our img to an sdl Surface
-  if((img = Engine::load_image(img_name)) == NULL)
-    {
-      std::cout << "Image:" + img_name + " could not be loaded\n";
-      assert(img != 0);
-    }
+  img = Engine::load_image(img_name);
+
   //Bounding box put to power of two
   bbox.w = power_of_two(img->w);
   bbox.h = power_of_two(img->h);

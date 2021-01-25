@@ -1,10 +1,9 @@
 #include<iostream>
 #include<string>
 #include <cstdlib> // For some useful functions such as atexit :)
-#include "SDL/SDL.h" // main SDL header
-#include "SDL/SDL_image.h" //SDL image header
+#include <SDL.h> // main SDL header
+#include <SDL_image.h> //SDL image header
 #include "event.h"
-
 using namespace std;
 
 void cInit();
@@ -28,7 +27,6 @@ int main( int argc, char* args[] )
     std::cerr << "Couldn't create screen"; //Output to stderr and quit
     exit(1);
   }
-
 
   //Load an image
   SDL_Surface *sprite;  

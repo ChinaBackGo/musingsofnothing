@@ -107,9 +107,14 @@ void Screen::read_cam(float &new_cam_x, float &new_cam_y, float &new_cam_z) cons
 //FIX ME
 SDL_Surface* Engine::load_image(const std::string& img_path) {
   //The image that's loaded 
-  SDL_Surface* loadedImage = NULL; //The optimized image that will be used 
-
-  loadedImage = IMG_Load( img_path.c_str() ); 
+  SDL_Surface* loadedImage = NULL; //The optimized image that will be used
+  loadedImage = IMG_Load( img_path.c_str() );
+  if (!loadedImage) {
+      std::cout << "Image:" + img_path + " could not be loaded\n";
+      std::cout << "Image Error:" << IMG_GetError();
+      assert(SDL_TRUE);
+      // handle error
+      }
   return loadedImage;
 }
 

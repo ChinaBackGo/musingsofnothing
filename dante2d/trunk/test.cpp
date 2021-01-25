@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 #include <typeinfo>
-#include "SDL/SDL.h" // main SDL header
+#include <SDL.h> // main SDL header
 #include "event.h"
 #include "sprite.h"
 #include "control.h"
@@ -84,7 +84,10 @@ int main (int argc, char *argv[])
 {
   //Static engine init function
   Engine::init();
-  
+
+  //TODO prints the working director - pass this to engine init? TODO
+  std::cout << argv[0];
+   
   //Breaks dynamically loaded libs?  FIX ME put this in cleanup code
   atexit(SDL_Quit); //Now that we're enabled, make sure we cleanup
 
@@ -94,21 +97,21 @@ int main (int argc, char *argv[])
   ControlMap &testmap = ControlMap::Instance();
   testmap.reset();
   /****************TEST FUNCTIONS*****************/
-//   test_screen_res();
-//   test_texture();
-//   test_Control();
-//   test_ControlMap();
-//   test_animSprite();
-//   test_timer();
-//   test_StateRunRight();
-//   test_StateRunLeft();
-//   test_StateStanding();
-//   test_cGameObject();
-//  test_PlayerClass();
-  test_Collision();
-//   test_tile();
-//   test_tilemap();
-//   test_leveldata();
+   test_screen_res();
+   test_texture();
+   test_Control();
+   test_ControlMap();
+   test_animSprite();
+   test_timer();
+   test_StateRunRight();
+   test_StateRunLeft();
+   test_StateStanding();
+   test_cGameObject();
+   test_PlayerClass();
+   test_Collision();
+   test_tile();
+   test_tilemap();
+   test_leveldata();
 
 
   //  TileMap test_tilemap("maps/testmap.map",0, 0, false);
@@ -175,12 +178,13 @@ void test_screen_res() {
   Screen &testscreen = Screen::Instance();
   XMAX = Engine::SCREEN_W;
   YMAX = Engine::SCREEN_H;
-
-  Texture testtex("sprites/test_square.png", 0, 0);
-  Texture testtex1("sprites/test_square.png", 0, YMAX - 64);
-  Texture testtex2("sprites/test_square.png", XMAX - 64, YMAX-64);
-  Texture testtex3("sprites/test_square.png", XMAX- 64, 0);
-  Texture testtex4("sprites/test_square.png", XMAX/2, YMAX/2);
+  string test_texture_str = R"(D:\Dev\musingsofnothing\dante2d\trunk\dante2d\x64\Debug\sprites\test_square.png)";
+  // TODO - fix the diretory where images are located, to be relative to the running director. get this from main.
+  Texture testtex(test_texture_str, 0, 0);
+  Texture testtex1(test_texture_str, 0, YMAX - 64);
+  Texture testtex2(test_texture_str, XMAX - 64, YMAX-64);
+  Texture testtex3(test_texture_str, XMAX- 64, 0);
+  Texture testtex4(test_texture_str, XMAX/2, YMAX/2);
   testscreen.clear();
   testtex.draw();
   testtex1.draw();

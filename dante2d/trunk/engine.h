@@ -1,15 +1,14 @@
 #ifndef INC_ENGINE_H
 #define INC_ENGINE_H
 
-/* #ifndef _WINDOWS */
-/* #include <windows.h> */
-/* #include <SDL/SDL.h> */
-/* #include <GL/gl.h> */
-/* #endif  /\* _WINDOWS *\/ */
+#ifndef _WINDOWS
+#include <windows.h>
+#include <GL/gl.h>
+#endif  _WINDOWS
 
 #include <string>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 
 //A Meyers Singleton Screen
 class Screen {

@@ -1,14 +1,14 @@
 #ifndef INC_TEXTURE_H
 #define INC_TEXTURE_H
 
-/* #ifndef _WINDOWS */
-/* #include "SDL/SDL_OpenGL.h" */
-/* #endif  /\* _WINDOWS *\/ */
+#ifndef _WINDOWS
+#include <SDL_OpenGL.h>
+#endif  _WINDOWS
 
 #include <string>
 #include <GL/gl.h>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include "engine.h"
 
 class Texture : public cGameObject

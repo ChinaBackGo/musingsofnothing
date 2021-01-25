@@ -5,7 +5,7 @@
 #include <typeinfo>
 #include <vector>
 #include "assert.h"
-#include "SDL/SDL.h"
+#include <SDL.h>
 #include "engine.h"
 #include "player.h"
 #include "world.h"
